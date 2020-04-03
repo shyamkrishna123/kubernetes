@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   name: cmapp
 spec:
+  shareProcessNamespace: true
   containers:
   - name: cmapp
     image: busybox
