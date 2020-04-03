@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cmapp
+spec:
+  containers:
+  - name: cmapp
+    image: busybox
+    command: ['sh', '-c','echo $(MY_VAR) && sleep 3600']
+    env:
+    - name: MY_VAR
+      valueFrom:
+          configMapKeyRef:
+            name: config-mapp
+            key: key

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ns-myapp
+  namespace: workbook
+  labels:
+    name: myapp
+spec:
+  containers:
+  - name: myapp
+    image: busybox
+    command: ['echo']
+    args: ['Hou google']
+  restartPolicy: Never

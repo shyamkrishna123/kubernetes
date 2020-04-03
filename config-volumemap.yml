@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vmapp
+spec:
+  containers:
+  - name: vmapp-container
+    image: busybox
+    command: ['sh','-c', 'echo $(cat /etc/config/key) && sleep 3600' ]
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+          name: config-mapp
